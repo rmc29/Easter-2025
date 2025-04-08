@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easter Egg Hunt 2025</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="detectMob();"> <!--warning popup if on mobile-->
+
+
+<!-- Indoor image starts off visible  -->
+<img src="indoor.png" style="visibility:visible" id="indoor"  usemap="#indoormap">
+
+<map name="indoormap">
+  <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:goOutside();" style="cursor: url('rightarrow.png'), auto">
+  <area shape="rect" coords="50,200,150,300" alt="Photo" href="javascript:display('photo', true);" style="cursor: url('glass.png'), auto">
+</map>
+
+<img src="form.png" onclick="toggleForm();" class="toolbar">
+
+
+
+<!-- Photo image starts off hidden  -->
+<img src="photo.png" style="visibility:hidden" id="photo"  usemap="#photomap">
+
+<map name="photomap">
+  <area shape="rect" coords="450,0,512,100" alt="Close" href="javascript:display('photo',false);" style="cursor: url('x.png'), auto">
+</map>
+
+<!-- Outdoor image starts off hidden -->
+<img src="outdoor.png" style="visibility:hidden" id="outdoor" usemap="#outdoormap">
+
+<map name="outdoormap">
+  <area shape="rect" coords="1000,200,1100,350" alt="Door" href="#" onclick="goInside();" style="cursor: url('uparrow.png'), auto">
+</map>
+
+<!-- TODO
+Make sure to update the cursor when the scene changes; it seems to persist
+Remove the shadows from the arrows!
+Add actual X to top right of photo and others (or make them (styled) popups??)
+Add credits page at end, and move arrow credit and others to there
+-->
+
+<div id="form" style="visibility:hidden; z-index: 1" >
+<form>
+On the <select id="1"></select> <select id="2"></select> there was a crash
+</form>
+<textarea>Personal notes...</textarea>
+<div>
+
+
+
+<a target="_blank" href="https://icons8.com/icon/11759/arrow">Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+	
+</body>
+</html>
