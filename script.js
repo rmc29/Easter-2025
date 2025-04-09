@@ -9,10 +9,8 @@ const date = Array.from({ length: 32 }, (value, index) => index);
 const year = Array.from({ length: 27},  (value, index) => 1999 + index);
 
 /* Question object:
-ID 
 Reference to list of options, e.g. names, verbs, etc
-Correct answer for this question
-Currently selected answer */
+Correct answer for this question */
 class Question {
 	constructor(optionlist, correctAnswer) {
 		this.optionlist = optionlist;
@@ -61,7 +59,7 @@ function makeDropdown(optionstring, thisoption, index, array) {
 
 function populateDropdown(q, index) {
 	el = document.getElementById(index); //todo consider making the element IDs e.g. "q1" rather than "1"
-	console.log(q);
+	//console.log(q);
 	//q.optionlist.sort();
 	optionstring = q.optionlist.reduce(makeDropdown);
 	

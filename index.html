@@ -13,19 +13,24 @@
 
 <map name="indoormap">
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:goOutside();" style="cursor: url('rightarrow.png'), auto">
-  <area shape="rect" coords="50,200,150,300" alt="Photo" href="javascript:display('photo', true);" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="50,200,150,300" alt="Photo" href="javascript:display('photodiv', true);" style="cursor: url('glass.png'), auto">
 </map>
 
 <img src="form.png" onclick="display('form', true);" class="toolbar">
 
 
 
-<!-- Photo image starts off hidden  -->
-<img src="photo.png" style="display:none; z-index: 1" id="photo"  usemap="#photomap">
+<!-- Photo image starts off hidden 
+<img src="photo.png" style="display:none; z-index: 1" id="photo"> -->
 
-<map name="photomap">
-  <area shape="rect" coords="450,0,512,100" alt="Close" href="javascript:display('photo',false);" style="cursor: url('x.png'), auto">
-</map>
+ <div id="photodiv" class="modal">
+ <div  class="modal-content" width=fit-content>
+ <span class="close" onclick="display('photodiv', false)">&times;</span> 
+<img src="photo.png"  id="photo" class="modal-content" width="512px" height="768px">
+</div>
+</div> 
+
+
 
 <!-- Outdoor image starts off hidden -->
 <img src="outdoor.png" style="display:none" id="outdoor" usemap="#outdoormap">
@@ -42,7 +47,7 @@ Add credits page at end, and move arrow credit and others to there
 -->
 
 <div id="form" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
-<div class="modal-content" > <!-- This is the modal itself -->
+<div class="modal-content; answerform" > <!-- This is the modal itself -->
  <span class="close" onclick="display('form', false)">&times;</span> <!-- Close button X -->
 <form>
 On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
