@@ -8,6 +8,11 @@ const month = Array.from({length: 13}, (value, index) => {
 const date = Array.from({ length: 32 }, (value, index) => index);
 const year = Array.from({ length: 27},  (value, index) => 1999 + index);
 
+const formText = "On 0 1 2, 3 crashed into 4 with 5."
+
+const locations = ["indoor", "outdoor", "road", "coffeeshop", /*"upstairs"*/];
+
+
 /* Question object:
 Reference to list of options, e.g. names, verbs, etc
 Correct answer for this question */
@@ -29,21 +34,21 @@ new Question(name,"Linda"),
 new Question(noun, "his car")
 ];
 
-function goInside() { //todo once we have >2 locations, change these to be more general and to make the chosen location visible and all others hidden
-	display("indoor", true);
-	display("outdoor", false);
+function go(targetLocation) { 
+	locations.forEach(hide); 
+	display(targetLocation);
+	display("answerbutton");
 
 }
 
-function goOutside() {
-	display("indoor", false);
-	display("outdoor", true);
-
+function display(id) {
+	document.getElementById(id).style.display = "block";
 }
 
-function display(id, value) {
-	//console.log(id, value)
-	document.getElementById(id).style.display = value ? "block" : "none";
+
+function hide(id) {
+	console.log(id);
+	document.getElementById(id).style.display = "none";
 }
 
 //warning popup if on mobile
@@ -70,6 +75,11 @@ function populateDropdown(q, index) {
 
 
 function populateForm() {
+	
+	//On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
+	t = formText.replace(/([0-9]+)/g, "<select id='$1' onchange='checkAnswers();'></select>");
+	console.log(t);
+	document.getElementById("form").innerHTML = t;
 	questions.forEach(populateDropdown);
 }
 

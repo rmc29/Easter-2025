@@ -5,18 +5,19 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="script.js"></script>
 </head>
-<body onload="start();"> <!--warning popup if on mobile-->
+<body onload="start();"> 
 
 
 <!-- Indoor image starts off displayed  -->
 <img src="indoor.png" style="display:block" id="indoor"  usemap="#indoormap">
 
 <map name="indoormap">
-  <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:goOutside();" style="cursor: url('rightarrow.png'), auto">
-  <area shape="rect" coords="50,200,150,300" alt="Photo" href="javascript:display('photodiv', true);" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
+  <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv', true);" style="cursor: url('glass.png'), auto">
 </map>
 
-<img src="form.png" onclick="display('form', true);" class="toolbar">
+<!-- Answer form modal/toolbar  -->
+<img src="form.png" onclick="display('form-modal');" class="toolbar" style="cursor: url('form.png'), auto" id="answerbutton">
 
 
 
@@ -24,10 +25,14 @@
 <img src="photo.png" style="display:none; z-index: 1" id="photo"> -->
 
  <div id="photodiv" class="modal">
- <div  class="modal-content" width=fit-content>
- <span class="close" onclick="display('photodiv', false)">&times;</span> 
-<img src="photo.png"  id="photo" class="modal-content" width="512px" height="768px">
-</div>
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('photodiv')">&times;</span> 
+		<img src="photo.png"  id="photo" class="modal-content" width="512px" height="768px">
+		<div class="phototext">
+			<p>Cherry Tree Primary School, Spring term, 1996</p>
+			<p>Deliver to: Ellie Harper, class 6A, Cherry Tree Primary School, Woodley</p>
+		</div>
+	</div>
 </div> 
 
 
@@ -36,8 +41,63 @@
 <img src="outdoor.png" style="display:none" id="outdoor" usemap="#outdoormap">
 
 <map name="outdoormap">
-  <area shape="rect" coords="1000,200,1100,350" alt="Door" href="#" onclick="goInside();" style="cursor: url('uparrow.png'), auto">
+  <area shape="rect" coords="1040,200,1120,370" alt="Door" href="#" onclick="go('indoor');" style="cursor: url('uparrow.png'), auto">
+   <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('road');" style="cursor: url('rightarrow.png'), auto">
 </map>
+
+<!-- Road image starts off hidden -->
+<img src="road-temp.png" style="display:none" id="road" usemap="#roadmap">  <!-- TODO:update with real road image-->
+
+<map name="roadmap">
+ <!-- TODO:decide which direction is which-->
+   <area shape="rect" coords="0,0,100,1024" alt="Left" href="javascript:go('outdoor');" style="cursor: url('leftarrow.png'), auto">
+    <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('coffeeshop');" style="cursor: url('rightarrow.png'), auto">
+</map>
+
+<!-- Coffee shop image starts off hidden -->
+<img src="coffeeshop.png" style="display:none" id="coffeeshop" usemap="#coffeemap">
+
+<map name="coffeemap">
+ <area shape="rect" coords="0,0,100,1024" alt="Exit" href="javascript:go('road');" style="cursor: url('leftarrow.png'), auto">
+  <area shape="rect" coords="600,70,850,400" alt="Orders" href="javascript:display('ordersdiv');" style="cursor: url('glass.png'), auto">
+   <area shape="rect" coords="1250,300,1400,500" alt="Rota" href="javascript:display('rotadiv');" style="cursor: url('glass.png'), auto">
+
+</map>
+
+<!-- Coffee orders image starts off hidden  -->
+ <div id="ordersdiv" class="modal">
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('ordersdiv')">&times;</span> 
+		<img src="orders.png"  id="orders" class="modal-content" >
+		
+	</div>
+</div> 
+
+<!-- Coffee rota starts off hidden
+TODO: style; right align  -->
+ <div id="rotadiv" class="modal">
+	 <div  class="modal-content" style="right:0px" >
+		<span class="close" onclick="hide('rotadiv')">&times;</span> 
+		<div class="rota">
+		
+		<u>Staff rota</u><br><br>
+		Weds 4: Dawn </br>
+		Thurs 5: Simon<br>
+		Fri 6: Dawn<br>
+		Sat 7: Geoff<br>
+		<b>Sun 8: closed </b><br>
+		Mon 9: Dawn <br>
+		Tues 10: Ali<br>
+		</div>
+		
+	</div>
+</div> 
+
+
+
+
+
+
 
 <!-- TODO
 Make sure to update the cursor when the scene changes; it seems to persist
@@ -46,16 +106,18 @@ Add actual X to top right of photo and others (or make them (styled) popups??)
 Add credits page at end, and move arrow credit and others to there
 -->
 
-<div id="form" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
-<div class="modal-content; answerform" > <!-- This is the modal itself -->
- <span class="close" onclick="display('form', false)">&times;</span> <!-- Close button X -->
-<form>
-On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
-<select id="3" onchange="checkAnswers();"></select> crashed into <select id="4" onchange="checkAnswers();"></select> with <select id="5" onchange="checkAnswers();"></select>.
-<!-- TODO generate this form in JS from source data -->
-</form>
-<textarea rows=10 cols=100 placeholder="Personal notes..."></textarea>
-<div>
+<div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
+	<div class="modal-content; answerform" > <!-- This is the modal itself -->
+		<span class="close" onclick="hide('form-modal')">&times;</span> <!-- Close button X -->
+		<table>
+		<tr>
+		<td>
+			<form id="form">
+		</form>
+		</td><td>
+			<textarea rows=10 cols=100 placeholder="Personal notes..."></textarea>
+		</td></tr></table>
+	<div>
 </div>
 
 

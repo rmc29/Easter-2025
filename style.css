@@ -3,10 +3,32 @@ body	{
 	}
 img		{position: absolute;}
 
-.toolbar 	{top: 1000;}
+.phototext {
+	background-color: #FFF8DC;
+	font-family: Courier;
+	font-color: dark-gray;
+	width: 450px;
+	z-index: 1;
+	position: absolute;
+}
+
+.rota {
+	background-color: #FFF8DC;
+	font-color: dark-blue;
+	font-family: Courier;
+/*	float: right;*/
+	padding: 50px;
+	
+	
+}
+
+.toolbar 	{
+	top: 1000;
+	z-index: 1;
+}
 
 .modal-content {
-  position: relative;
+  position: absolute;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
@@ -48,9 +70,14 @@ img		{position: absolute;}
 /* Close button */
 .close {
   color: #aaaaaa;
-  float: right;
+
   font-size: 28px;
   font-weight: bold;
+  position: relative; 
+  /*absolute should mean relative to its container, relative should mean relative to its default position. Absolute puts it on the left in both cases (idk why); relative puts it on the right for the answer form (as expected) but left for the photo (idk why). Also works correctly (on right) for the rota, which is text only.*/
+  z-index: 2;
+
+  float: right;
 }
 
 .close:hover,
