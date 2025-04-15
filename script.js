@@ -138,7 +138,7 @@ function populateDropdown(q, index) {
 function populateForm() {
 	
 	//On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
-	t = formText.replace(/([0-9]+)/g, "<select id='$1' class='rounded border-2 border-red-600 shadow-md' onchange='checkAnswers();'></select>");
+	t = formText.replace(/([0-9]+)/g, "<select id='$1' onchange='checkAnswers();'></select>");
 	//console.log(t);
 	document.getElementById("form").innerHTML = t;
 	questions.forEach(populateDropdown);

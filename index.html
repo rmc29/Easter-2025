@@ -14,9 +14,9 @@
 
 <map name="indoormap">
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
-  <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv', true);" style="cursor: url('glass.png'), auto">
-  <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv', true);" style="cursor: url('glass.png'), auto">
-  <area shape="rect" coords="380,60,590,265" alt="Conversation" href="javascript:display('indoor-convodiv', true);" style="cursor: url('speech.png'), auto">
+  <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv');" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv');" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="380,60,590,265" alt="Conversation" href="javascript:display('indoor-convodiv');" style="cursor: url('speech.png'), auto">
   
 </map>
 
@@ -133,7 +133,7 @@ Fix issues with some Xs on the left
 -->
 
 <div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
-	<div class="modal-content; answerform" > <!-- This is the modal itself --> <!-- class="modal-content; rounded-xl border-4 border-red-600 bg-gradient-to-tr from-red-500 to-orange-500"  -->
+	<div class="modal-content answerform" > <!-- This is the modal itself --> <!-- class="modal-content; rounded-xl border-4 border-red-600 bg-gradient-to-tr from-red-500 to-orange-500"  -->
 		<span class="close" onclick="hide('form-modal')">&times;</span> <!-- Close button X -->
 		<table>
 		<tr>
