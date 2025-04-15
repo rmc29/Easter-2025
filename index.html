@@ -4,6 +4,7 @@
 <title>Easter Egg Hunt 2025</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="script.js"></script>
+
 </head>
 <body onload="start();"> 
 
@@ -14,6 +15,9 @@
 <map name="indoormap">
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
   <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv', true);" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv', true);" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="380,60,590,265" alt="Conversation" href="javascript:display('indoor-convodiv', true);" style="cursor: url('speech.png'), auto">
+  
 </map>
 
 <!-- Answer form modal/toolbar  -->
@@ -21,8 +25,7 @@
 
 
 
-<!-- Photo image starts off hidden 
-<img src="photo.png" style="display:none; z-index: 1" id="photo"> -->
+<!-- Photo image starts off hidden  -->
 
  <div id="photodiv" class="modal">
 	 <div  class="modal-content" >
@@ -31,6 +34,28 @@
 		<div class="phototext">
 			<p>Cherry Tree Primary School, Spring term, 1996</p>
 			<p>Deliver to: Ellie Harper, class 6A, Cherry Tree Primary School, Woodley</p>
+		</div>
+	</div>
+</div> 
+
+<!-- Note image starts off hidden  -->
+
+ <div id="notediv" class="modal">
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('notediv')">&times;</span> 
+		<img src="note.png"  id="note" class="modal-content" width="512px" height="768px">
+
+	</div>
+</div> 
+
+<!-- Conversation starts off hidden  -->
+
+ <div id="indoor-convodiv" class="modal">
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('indoor-convodiv')">&times;</span> 
+		<div class="convotext">
+			<p>Convo between</p>
+			<p>Linda, Becky, Zara</p>
 		</div>
 	</div>
 </div> 
@@ -104,10 +129,11 @@ Make sure to update the cursor when the scene changes; it seems to persist
 Remove the shadows from the arrows!
 Add actual X to top right of photo and others (or make them (styled) popups??)
 Add credits page at end, and move arrow credit and others to there
+Fix issues with some Xs on the left
 -->
 
 <div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
-	<div class="modal-content; answerform" > <!-- This is the modal itself -->
+	<div class="modal-content; answerform" > <!-- This is the modal itself --> <!-- class="modal-content; rounded-xl border-4 border-red-600 bg-gradient-to-tr from-red-500 to-orange-500"  -->
 		<span class="close" onclick="hide('form-modal')">&times;</span> <!-- Close button X -->
 		<table>
 		<tr>
