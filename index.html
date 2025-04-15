@@ -68,7 +68,17 @@
 <map name="outdoormap">
   <area shape="rect" coords="1040,200,1120,370" alt="Door" href="#" onclick="go('indoor');" style="cursor: url('uparrow.png'), auto">
    <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('road');" style="cursor: url('rightarrow.png'), auto">
+    <area shape="rect" coords="150,450,720,770" alt="Car" href="javascript:display('cardiv');" style="cursor: url('glass.png'), auto">
 </map>
+
+<!-- Box of beans starts off hidden  -->
+ <div id="cardiv" class="modal">
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('cardiv')">&times;</span> 
+		<img src="beans.png"  id="car" width="512px" height="512px" class="modal-content" >
+		
+	</div>
+</div> 
 
 <!-- Road image starts off hidden -->
 <img src="road-temp.png" style="display:none" id="road" usemap="#roadmap">  <!-- TODO:update with real road image-->

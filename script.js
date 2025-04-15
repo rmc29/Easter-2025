@@ -43,8 +43,8 @@ new Question(name,"Linda"),
 new Question(name,"Harper"),
 new Question(name,"Frank"),
 new Question(name,"Ellie"),
-new Question(name,"Andrew"), //todo
-new Question(name,"Ben"), //todo
+new Question(name,"Andrew"),
+new Question(name,"James"),
 new Question(name,"Becky"),
 new Question(day,"Saturday"),
 new Question(date,"7"),
@@ -55,15 +55,15 @@ new Question(hour,"5"),
 new Question(name,"Andrew"), 
 new Question(name,"Harper"),
 new Question(verbing, "driving"),
-new Question(direction, "north"), //todo
+new Question(direction, "south"), 
 new Question(verb, "visit"),
 new Question(noun, "his parents"),
 new Question(verbed, "crashed into"),
-new Question(name,"Dave"), 
+new Question(name,"Ed"), 
 new Question(name,"Stuart"),
 
 new Question(verbing, "driving"),
-new Question(direction, "south"), //todo
+new Question(direction, "north"),
 new Question(noun, "Woodley"),
 new Question(noun, "Bellington"),
 new Question(verb, "deliver"),
@@ -75,7 +75,7 @@ new Question(name,"Zara"),
 
 new Question(name,"Ellie"),
 new Question(noun, "a coffee shop"),
-new Question(noun, "Woodley"), //todo
+new Question(noun, "Bellington"), 
 new Question(verbed, "ordered"),
 new Question(noun, "a fruit smoothie"),
 new Question(name, "Geoff"),
