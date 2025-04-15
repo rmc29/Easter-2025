@@ -9,6 +9,8 @@
 <body onload="start();"> 
 
 
+<!-- ============== INDOORS ============== -->
+
 <!-- Indoor image starts off displayed  -->
 <img src="indoor.png" style="display:block" id="indoor"  usemap="#indoormap">
 
@@ -60,7 +62,7 @@
 	</div>
 </div> 
 
-
+<!-- ============== OUTDOORS ============== -->
 
 <!-- Outdoor image starts off hidden -->
 <img src="outdoor.png" style="display:none" id="outdoor" usemap="#outdoormap">
@@ -68,7 +70,8 @@
 <map name="outdoormap">
   <area shape="rect" coords="1040,200,1120,370" alt="Door" href="#" onclick="go('indoor');" style="cursor: url('uparrow.png'), auto">
    <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('road');" style="cursor: url('rightarrow.png'), auto">
-    <area shape="rect" coords="150,450,720,770" alt="Car" href="javascript:display('cardiv');" style="cursor: url('glass.png'), auto">
+    <area shape="rect" coords="150,450,700,770" alt="Car" href="javascript:display('cardiv');" style="cursor: url('glass.png'), auto">
+	<area shape="rect" coords="350,220,1039,400" alt="Conversation" href="javascript:display('outdoor-convodiv');" style="cursor: url('speech.png'), auto">
 </map>
 
 <!-- Box of beans starts off hidden  -->
@@ -80,14 +83,30 @@
 	</div>
 </div> 
 
+<!-- Outdoor conversation starts off hidden  -->
+ <div id="outdoor-convodiv" class="modal">
+	 <div  class="modal-content convo" style="top:380px; right:550px" >
+		<span class="close" onclick="hide('outdoor-convodiv')">&times;</span> 
+		<p>"What the hell were you doing?"</p>
+		<p>"I was indicating! I was clearly turning right into that driveway!"</p>
+		
+	</div>
+		
+	</div>
+</div> 
+
+<!-- ============== ROAD ============== -->
+
 <!-- Road image starts off hidden -->
-<img src="road-temp.png" style="display:none" id="road" usemap="#roadmap">  <!-- TODO:update with real road image-->
+<img src="road.png" style="display:none" id="road" usemap="#roadmap">  <!-- TODO:update with real road image-->
 
 <map name="roadmap">
  <!-- TODO:decide which direction is which-->
    <area shape="rect" coords="0,0,100,1024" alt="Left" href="javascript:go('outdoor');" style="cursor: url('leftarrow.png'), auto">
     <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('coffeeshop');" style="cursor: url('rightarrow.png'), auto">
 </map>
+
+<!-- ============== COFFEE SHOP ============== -->
 
 <!-- Coffee shop image starts off hidden -->
 <img src="coffeeshop.png" style="display:none" id="coffeeshop" usemap="#coffeemap">
@@ -152,8 +171,10 @@ Make sure to update the cursor when the scene changes; it seems to persist
 Remove the shadows from the arrows!
 Add actual X to top right of photo and others (or make them (styled) popups??)
 Add credits page at end, and move arrow credit and others to there
-Fix issues with some Xs on the left
+Fix issues with some Xs on the left (or just put them all on the left?!)
 -->
+
+<!-- ============== ANSWER FORM ============== -->
 
 <div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
 	<div class="modal-content answerform" > <!-- This is the modal itself --> <!-- class="modal-content; rounded-xl border-4 border-red-600 bg-gradient-to-tr from-red-500 to-orange-500"  -->
