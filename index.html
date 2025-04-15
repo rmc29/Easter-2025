@@ -53,7 +53,7 @@
  <div id="indoor-convodiv" class="modal">
 	 <div  class="modal-content" >
 		<span class="close" onclick="hide('indoor-convodiv')">&times;</span> 
-		<div class="convotext">
+		<div class="convo">
 			<p>Convo between</p>
 			<p>Linda, Becky, Zara</p>
 		</div>
@@ -84,8 +84,9 @@
 
 <map name="coffeemap">
  <area shape="rect" coords="0,0,100,1024" alt="Exit" href="javascript:go('road');" style="cursor: url('leftarrow.png'), auto">
-  <area shape="rect" coords="600,70,850,400" alt="Orders" href="javascript:display('ordersdiv');" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="600,70,850,350" alt="Orders" href="javascript:display('ordersdiv');" style="cursor: url('glass.png'), auto">
    <area shape="rect" coords="1250,300,1400,500" alt="Rota" href="javascript:display('rotadiv');" style="cursor: url('glass.png'), auto">
+    <area shape="rect" coords="170,360,1260,800" alt="Conversation" href="javascript:display('coffee-convodiv');" style="cursor: url('speech.png'), auto">
 
 </map>
 
@@ -93,7 +94,19 @@
  <div id="ordersdiv" class="modal">
 	 <div  class="modal-content" >
 		<span class="close" onclick="hide('ordersdiv')">&times;</span> 
-		<img src="orders.png"  id="orders" class="modal-content" >
+		<img src="orders.png"  id="orders" width="512px" height="512px" class="modal-content" >
+		
+	</div>
+</div> 
+
+<!-- Coffee conversation image starts off hidden  -->
+ <div id="coffee-convodiv" class="modal">
+	 <div  class="modal-content convo" style="top:500px; right:500px" >
+		<span class="close" onclick="hide('coffee-convodiv')">&times;</span> 
+		<p>"Nice place! Is it new?"</p>
+		<p>"Yeah. The boss just opened up this new branch, but the old branch has been in Woodley for years."</p>
+		<p>"Oh, cool, I know Woodley - I went to primary school there."</p>
+		<p>"Nice. Take a seat, miss - I'll bring over your order in a sec."</p>
 		
 	</div>
 </div> 
