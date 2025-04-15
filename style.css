@@ -5,14 +5,14 @@ img		{position: absolute;}
 select	{
 	border-radius: 5px;
 	box-shadow: 1px 1px #888888;
-	background-color: oldlace;
+	//background-color: oldlace;
 	color: maroon;
 	
 }
 textarea	{
 	border-radius: 10px;
 	box-shadow: 1px 1px #888888;
-	background-color: oldlace;
+	//background-color: oldlace;
 	color: maroon;
 	
 }

@@ -18,7 +18,7 @@
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
   <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv');" style="cursor: url('glass.png'), auto">
   <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv');" style="cursor: url('glass.png'), auto">
-  <area shape="rect" coords="380,60,590,265" alt="Conversation" href="javascript:display('indoor-convodiv');" style="cursor: url('speech.png'), auto">
+  <area shape="rect" coords="440,60,1340,550" alt="Conversation" href="javascript:display('indoor-convodiv');" style="cursor: url('speech.png'), auto">
   
 </map>
 
@@ -53,11 +53,12 @@
 <!-- Conversation starts off hidden  -->
 
  <div id="indoor-convodiv" class="modal">
-	 <div  class="modal-content" >
+	 <div  class="modal-content convo" style="top:300px; left:100px" >
 		<span class="close" onclick="hide('indoor-convodiv')">&times;</span> 
-		<div class="convo">
-			<p>Convo between</p>
-			<p>Linda, Becky, Zara</p>
+		<div >
+			<p style="color:salmon"> "... and I was saying to Doreen at the hairdresser's, Doreen, I said, our boys look so alike they could almost be twins, I said, and since James got that weird thingy done people can't tell them apart any more..."</p>
+			<p style="color:forestgreen"> "'Weird thingy'? Ugh, Mum, you're so embarrassing. Ignore her, Zara."</p>
+			<p style="color:orange">"Becky, you sound like a teenager, haha."</p>
 		</div>
 	</div>
 </div> 
@@ -71,7 +72,7 @@
   <area shape="rect" coords="1040,200,1120,370" alt="Door" href="#" onclick="go('indoor');" style="cursor: url('uparrow.png'), auto">
    <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('road');" style="cursor: url('rightarrow.png'), auto">
     <area shape="rect" coords="150,450,700,770" alt="Car" href="javascript:display('cardiv');" style="cursor: url('glass.png'), auto">
-	<area shape="rect" coords="350,220,1039,400" alt="Conversation" href="javascript:display('outdoor-convodiv');" style="cursor: url('speech.png'), auto">
+	<area shape="rect" coords="350,220,1000,400" alt="Conversation" href="javascript:display('outdoor-convodiv');" style="cursor: url('speech.png'), auto">
 </map>
 
 <!-- Box of beans starts off hidden  -->
@@ -87,8 +88,8 @@
  <div id="outdoor-convodiv" class="modal">
 	 <div  class="modal-content convo" style="top:380px; right:550px" >
 		<span class="close" onclick="hide('outdoor-convodiv')">&times;</span> 
-		<p>"What the hell were you doing?"</p>
-		<p>"I was indicating! I was clearly turning right into that driveway!"</p>
+		<p style="color:skyblue">"What the hell were you doing?"</p>
+		<p style="color:red">"I was indicating! I was clearly turning right into that driveway!"</p>
 		
 	</div>
 		
@@ -132,10 +133,10 @@
  <div id="coffee-convodiv" class="modal">
 	 <div  class="modal-content convo" style="top:500px; right:500px" >
 		<span class="close" onclick="hide('coffee-convodiv')">&times;</span> 
-		<p>"Nice place! Is it new?"</p>
-		<p>"Yeah. The boss just opened up this new branch, but the old branch has been in Woodley for years."</p>
-		<p>"Oh, cool, I know Woodley - I went to primary school there."</p>
-		<p>"Nice. Take a seat, miss - I'll bring over your order in a sec."</p>
+		<p style="color:orangered">"Nice place! Is it new?"</p>
+		<p style="color:forestgreen">"Yeah. The boss just opened up this new branch, but the old branch has been in Woodley for years."</p>
+		<p style="color:orangered">"Oh, cool, I know Woodley - I went to primary school there."</p>
+		<p style="color:forestgreen">"Nice. Take a seat, miss - I'll bring over your order in a sec."</p>
 		
 	</div>
 </div> 
