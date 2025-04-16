@@ -50,6 +50,7 @@
 <map name="indoormap">
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
   <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv');" style="cursor: url('glass.png'), auto">
+   <area shape="rect" coords="250,690,500,900" alt="Clutter" href="javascript:display('clutterdiv');" style="cursor: url('glass.png'), auto">
   <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv');" style="cursor: url('glass.png'), auto">
   <area shape="rect" coords="440,60,1340,550" alt="Conversation" href="javascript:display('indoor-convodiv');" style="cursor: url('speech.png'), auto">
   
@@ -79,6 +80,17 @@
 	 <div  class="modal-content" >
 		<span class="close" onclick="hide('notediv')">&times;</span> 
 		<img src="note.png"  id="note" class="modal-content" width="512px" height="768px">
+
+	</div>
+</div> 
+
+<!-- Table clutter image starts off hidden  -->
+<!-- TODO add the rest of the table clutter (LASIK letter, Easter dates, Easter card) -->
+
+ <div id="clutterdiv" class="modal">
+	 <div  class="modal-content" >
+		<span class="close" onclick="hide('clutterdiv')">&times;</span> 
+		<img src="flyer.png"  id="note" class="modal-content" width="512px" height="768px">
 
 	</div>
 </div> 
@@ -170,10 +182,11 @@ TODO: style; right align  -->
 
 
 <!-- TODO
+Close by clicking in grey overlay outside modals?
 Add credits page at end, and move arrow credit and others to there
+Different/bigger font for conversations? Bold?
 Fix issues with some Xs on the left (or just put them all on the left?!)
-Maybe separate answer form into 3 so they can all go green independently.
-Change classes on answer form etc when correct, to green, and maybe fade out to reveal a message
+ when correct, maybe fade out to reveal a message
 -->
 
 <!-- ============== ANSWER FORM ============== -->
