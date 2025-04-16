@@ -1,10 +1,10 @@
-const name = ["(Name)", "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe", "Ruth", "Emma", "Ed", "Ashton", "Julia", "John", "Ali", "Rob", "Stuart", "Dawn", "Simon"].sort();
+const name = ["(Name)", "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe", "Ruth", "Emma", "Ed", "Ashton", "Julia", "John", "Ali", "Rob", "Stuart", "Dawn", "Simon", "Geoff"].sort();
 const noun = ["(noun)", "his parents", "her friend", "coffee beans", "the universe", "a coffee shop", "world peace", "the letter Q", "a duck", "potatoes", "an Easter card", "their house", "the road", "his car", "his job", "money", "existential terror", "an iPhone", "the Riemann hypothesis ", "cheesecake", "her sister", "her brother", "his sister", "his brother", "her parents", "a fruit smoothie", "a milkshake", "a cappuccino", "baked beans", "green beans", "jumping beans", "black beans"].sort();
 const place = ["(place)", "Woodley", "Bellington", "Farley", "Norton", "Harpton", "Mereham" ].sort();
 const direction = ["(direction)","north", "south", "east", "west", "downward", "upward","ana", "kata", "rimward", "hubward" ];
-const verb = ["(verb)","visit", "deliver", "eat", "drink", "kill", "defenestrate", "seduce", "reverse-engineer", "buy", "sell", "crash into", "analyse", "find", "apologise to", "drive", "order", "fix", "break", "return", "transmute", "advertise"].sort();
-const verbed = ["(verbed)","visited", "delivered", "ate", "drank", "killed", "defenestrated", "seduced", "reverse-engineered", "bought", "sold", "crashed into", "analysed", "found", "apologised to", "drove", "ordered", "fixed", "broke", "returned", "transmuted", "advertised"].sort();
-const verbing = ["(verbing)","visiting", "delivering", "eating", "drinking", "killing", "defenestrating", "seducing", "reverse-engineering", "buying", "selling", "crashing into", "analysing", "finding", "apologising to", "driving", "ordering", "fixing", "breaking", "returning", "transmuting", "advertising"].sort();
+const verb = ["(verb)","visit", "deliver", "eat", "drink", "kill", "defenestrate", "seduce", "reverse-engineer", "buy", "sell", "crash into", "analyse", "find", "apologise to", "drive", "order", "fix", "break", "return", "transmute", "advertise", "chat to"].sort();
+const verbed = ["(verbed)","visited", "delivered", "ate", "drank", "killed", "defenestrated", "seduced", "reverse-engineered", "bought", "sold", "crashed into", "analysed", "found", "apologised to", "drove", "ordered", "fixed", "broke", "returned", "transmuted", "advertised", "chatted to"].sort();
+const verbing = ["(verbing)","visiting", "delivering", "eating", "drinking", "killing", "defenestrating", "seducing", "reverse-engineering", "buying", "selling", "crashing into", "analysing", "finding", "apologising to", "driving", "ordering", "fixing", "breaking", "returning", "transmuting", "advertising", "chatting to"].sort();
 const month = Array.from({length: 12}, (value, index) => {
   return new Date(0, index).toLocaleString('en-GB', {month: 'long'})
 });
@@ -24,8 +24,8 @@ Meanwhile, Becky was chatting to her friend Zara, and Ellie was at a coffee shop
 
 const formText = [
 "0 1 and her husband 2 have four grown-up children, who are, in birth order, 3, 4, 5 and 6.",
-"On 7 8 9, 10, at about 11 pm, 12 13 was 14 15, to 16 17, and 18 19 20, who was 21 22 from 23 to 24, to 25 26.",
- "Meanwhile, 27 was 28 29 30, and 31 was at 32 in 33, where she 34 35 from 36 the barista.",
+"On 0 1 2, 3, at about 4 pm, 5 6 was 7 8, to 9 10, and 11 12 13, who was 14 15 from 16 to 17, to 18 19.",
+ "Meanwhile, 0 (and her mother) were 1 2 3, and 4 was at 5 in 6, where she 7 8 from 9 the barista.",
  ];
 
 const locations = ["indoor", "outdoor", "road", "coffeeshop", /*"upstairs"*/];
@@ -43,13 +43,18 @@ class Question {
 }
 
 var questions = [
+
+[
 new Question(name,"Linda"), 
 new Question(name,"Harper"),
 new Question(name,"Frank"),
 new Question(name,"Ellie"),
 new Question(name,"Andrew"),
 new Question(name,"James"),
-new Question(name,"Becky"),
+new Question(name,"Becky")
+],
+
+[
 new Question(day,"Saturday"),
 new Question(date,"7"),
 new Question(month,"April"),
@@ -71,7 +76,10 @@ new Question(direction, "north"),
 new Question(place, "Woodley"),
 new Question(place, "Bellington"),
 new Question(verb, "deliver"),
-new Question(verb, "coffee beans"),
+new Question(noun, "coffee beans")
+],
+
+[
 new Question(name,"Becky"),
 new Question(verbing,"chatting to"),
 new Question(noun, "her friend"),
@@ -82,7 +90,8 @@ new Question(noun, "a coffee shop"),
 new Question(place, "Bellington"), 
 new Question(verbed, "ordered"),
 new Question(noun, "a fruit smoothie"),
-new Question(name, "Geoff"),
+new Question(name, "Geoff")
+]
 ]
 
 
@@ -110,17 +119,16 @@ function hide(id) {
 	}
 }
 /*called for each answer in a question's answer list*/
-function makeDropdown(optionstring, thisoption, index, array) {
+function makeDropdown(optionstring, thisoption) {
 	//console.log(optionstring, thisoption);
 	return optionstring + "<option value='" + thisoption + "'>" + thisoption + "</option>"; 
-	//return optionstring + "<option value='" + thisoption + "' style='color:" + (index ? "black" : "gray") + "'>" + thisoption + "</option>"; 
-	//return optionstring + "<option " + (index ? "" : "disabled selected") + " value='" + thisoption + "'>" + thisoption + "</option>"; 
+
 }
 
 function populateDropdown(q, index) {
-	el = document.getElementById(index); //todo consider making the element IDs e.g. "q1" rather than "1"
-	//console.log(q);
-	//q.optionlist.sort();
+	id = this + "-" + index;
+	//console.log(id);
+	el = document.getElementById(id); 
 	optionstring =  "";
 	optionstring = q.optionlist.reduce(makeDropdown, optionstring);
 	
@@ -134,32 +142,60 @@ function populateForm() {
 	
 	//On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
 	for (i in [0,1,2]) {
-		t = "<div class='answerform' id='form" + i + "'>";
-		t += formText[i].replace(/([0-9]+)/g, "<select id='$1' onchange='checkAnswers();'></select>");
+		t = "<div class='answerform incorrect' id='form" + i + "'>";
+		t += formText[i].replace(/([0-9]+)/g, "<select id='" + i + "-$1' onchange='checkAnswers();'></select>");
 		t += "</div>";
 		document.getElementById("form").innerHTML += t;
+		questions[i].forEach(populateDropdown, i);
+		//console.log(t);
 
 	}
-	questions.forEach(populateDropdown);
+	//questions.flat().forEach(populateDropdown);
+	
 }
 
-function makeSelectElementGreen(value) {
-	console.log(value);
-	value.class = 'rounded border-2 border-green-600 shadow-md';
+function isAnswerCorrect(question, index) {
+		//console.log(question + " " + this);
+		return (document.getElementById(this + "-" + index).value == question.correctAnswer);
+		
 }
-
-function isAnswerCorrect(value, index) {
-		return (document.getElementById(index).value == value.correctAnswer);
+	
+//Add the "correct" class to an element, which styles it green	
+function addCorrectClass(el) {
+	
+	//console.log(el);
+	el.classList.add("correct");
+	el.classList.add("greentext");
+	
+}
+//add disabled attribute - locking the correct answers in
+function lockIn(el) {
+	
+	//console.log(el);
+	el.disabled = true;
+	el.classList.add("greentext");
 }
 
 function checkAnswers() {
- //todo check each form separately, make the correct ones green; proceed to success state if all 3 correct
+ //check each form separately, make the correct ones green; proceed to success state if all 3 correct
 
-	if (questions.every(isAnswerCorrect) || tmp==1) {
-		console.log("correct!")
-		//document.getElementById("notes").class = "rounded-lg border-4 border-green-600 shadow-lg";
-		document.getElementById("form").class = "answerform-correct" ;
-		//document.getElementsByTagName("select").forEach(makeSelectElementGreen);
+	score = 0;
+	for (i in [0,1,2]) {
+		formid = "form" + i;
+		if (questions[i].every(isAnswerCorrect, i) || tmp==1) {
+			//console.log(formid + " correct!")
+			addCorrectClass(document.getElementById(formid));	
+			Array.from(document.getElementById(formid).children).forEach(lockIn);
+			score++;
+			
+		}
+	}
+	
+	if (score == 3 || tmp==1) {
+		console.log("all correct!")
+		for (i of ["notes", "form", "form-container"]) {
+			addCorrectClass(document.getElementById(i));
+		}
 		
 	}
 }

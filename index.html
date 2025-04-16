@@ -170,7 +170,6 @@ TODO: style; right align  -->
 
 
 <!-- TODO
-Remove the shadows from the arrows!
 Add credits page at end, and move arrow credit and others to there
 Fix issues with some Xs on the left (or just put them all on the left?!)
 Maybe separate answer form into 3 so they can all go green independently.
@@ -180,15 +179,15 @@ Change classes on answer form etc when correct, to green, and maybe fade out to 
 <!-- ============== ANSWER FORM ============== -->
 
 <div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
-	<div class="modal-content answerform" > <!-- This is the modal itself --> 
+	<div class="modal-content answerform incorrect" id="form-container"> <!-- This is the modal itself --> 
 		<span class="close" onclick="hide('form-modal')">&times;</span> <!-- Close button X -->
 		<table>
 		<tr>
 		<td>
-			<div id="form">
+			<div id="form" class="answerform incorrect">
 			</div>
 		</td><td>
-			<textarea rows=16 cols=100 placeholder="Personal notes..."></textarea>
+			<textarea id="notes" rows=16 cols=100 placeholder="Personal notes..."></textarea>
 		</td></tr></table>
 	<div>
 </div>

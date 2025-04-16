@@ -1,19 +1,16 @@
 body	{
-	//font-family: arial, sans-serif;
+
 	}
 img		{position: absolute;}
+
 select	{
 	border-radius: 5px;
-	box-shadow: 1px 1px #888888;
-	//background-color: oldlace;
+	box-shadow: 1px 1px dark-grey;
 	color: maroon;
 	
 }
 textarea	{
 	border-radius: 10px;
-	box-shadow: 1px 1px #888888;
-	//background-color: oldlace;
-	color: maroon;
 	
 }
 
@@ -67,27 +64,32 @@ textarea	{
 }
 
 .answerform {
-  border-color: maroon;
   border-width: 2px;
-  padding: 10px;
+  padding: 2px;
   margin: 10px;
-  box-shadow: 2px 2px maroon;
-  background-color: firebrick;
   border-radius: 10px;
   color: beige;
    font-family: Arial, Helvetica, sans-serif;
 }
 
-.answerform-correct {
-  border-color: darkgreen;
-  border-width: 2px;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 2px 2px darkgreen;
-  background-color: green;
-  border-radius: 10px;
+.incorrect {
+  border-color: maroon;
+  border: 2px solid maroon;
+  box-shadow: 2px 2px maroon;
+  background-color: firebrick;
   color: beige;
-   font-family: Arial, Helvetica, sans-serif;
+}
+
+.correct {
+  border-color: darkgreen;
+   border: 2px solid darkgreen;
+  box-shadow: 2px 2px darkgreen;
+  background-color: mediumseagreen;
+
+}
+
+.greentext {
+	  color: darkgreen;
 }
 
 /* Add Animation */
