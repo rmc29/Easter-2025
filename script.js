@@ -1,5 +1,6 @@
-const name = ["(Name)",  "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe ", "Ruth", "Emma", "Edward", "Ashley", "Julia", "John", "Ali", "Rob ", "Stuart ", "Dawn", "Simon"].sort();
-const noun = ["(noun)", "his parents", "her friend", "coffee beans", "the universe", "a coffee shop", "world peace", "the letter Q", "a duck", "potatoes", "an Easter card", "their house", "the road", "his car", "his job", "money", "existential terror", "an iPhone", "the Riemann hypothesis ", "cheesecake", "her sister", "her brother", "his sister", "his brother", "her parents", "a fruit smoothie", "a milkshake", "a cappuccino", "baked beans", "green beans", "jumping beans", "black beans", "Woodley", "Bellington", "Farley", "Norton", "Harpton", "Mereham" ].sort();
+const name = ["(Name)", "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe", "Ruth", "Emma", "Ed", "Ashton", "Julia", "John", "Ali", "Rob", "Stuart", "Dawn", "Simon"].sort();
+const noun = ["(noun)", "his parents", "her friend", "coffee beans", "the universe", "a coffee shop", "world peace", "the letter Q", "a duck", "potatoes", "an Easter card", "their house", "the road", "his car", "his job", "money", "existential terror", "an iPhone", "the Riemann hypothesis ", "cheesecake", "her sister", "her brother", "his sister", "his brother", "her parents", "a fruit smoothie", "a milkshake", "a cappuccino", "baked beans", "green beans", "jumping beans", "black beans"].sort();
+const place = ["(place)", "Woodley", "Bellington", "Farley", "Norton", "Harpton", "Mereham" ].sort();
 const direction = ["(direction)","north", "south", "east", "west", "downward", "upward","ana", "kata", "rimward", "hubward" ];
 const verb = ["(verb)","visit", "deliver", "eat", "drink", "kill", "defenestrate", "seduce", "reverse-engineer", "buy", "sell", "crash into", "analyse", "find", "apologise to", "drive", "order", "fix", "break", "return", "transmute", "advertise"].sort();
 const verbed = ["(verbed)","visited", "delivered", "ate", "drank", "killed", "defenestrated", "seduced", "reverse-engineered", "bought", "sold", "crashed into", "analysed", "found", "apologised to", "drove", "ordered", "fixed", "broke", "returned", "transmuted", "advertised"].sort();
@@ -17,12 +18,15 @@ hour.unshift("(Hour)");
 const day = ["(Weekday)", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 
-//const formText = "On 0 1 2, 3 crashed into 4 with 5."
 /* const formText = "Linda Harper and her husband Frank have four grown-up children, who are, in birth order, Ellie, X, X and Becky.<br>
 On Saturday the 7th April, 2012, at about 5pm, Andrew Harper was driving north, to visit his parents, and crashed into Dave Stuart, who was driving south from Woodley to Bellington, to deliver coffee beans.<br>
 Meanwhile, Becky was chatting to her friend Zara, and Ellie was at a coffee shop in X, where she ordered a fruit smoothie from Geoff the barista." */
 
-const formText = "0 1 and her husband 2 have four grown-up children, who are, in birth order, 3, 4, 5 and 6.<br><BR> On 7 8 9, 10, at about 11 pm, 12 13 was 14 15, to 16 17, and 18 19 20, who was 21 22 from 23 to 24, to 25 26.<br><BR> Meanwhile, 27 was 28 29 30, and 31 was at 32 in 33, where she 34 35 from 36 the barista."
+const formText = [
+"0 1 and her husband 2 have four grown-up children, who are, in birth order, 3, 4, 5 and 6.",
+"On 7 8 9, 10, at about 11 pm, 12 13 was 14 15, to 16 17, and 18 19 20, who was 21 22 from 23 to 24, to 25 26.",
+ "Meanwhile, 27 was 28 29 30, and 31 was at 32 in 33, where she 34 35 from 36 the barista.",
+ ];
 
 const locations = ["indoor", "outdoor", "road", "coffeeshop", /*"upstairs"*/];
 
@@ -49,7 +53,7 @@ new Question(name,"Becky"),
 new Question(day,"Saturday"),
 new Question(date,"7"),
 new Question(month,"April"),
-new Question(year, 2012),
+new Question(year, "2012"),
 
 new Question(hour,"5"), 
 new Question(name,"Andrew"), 
@@ -64,8 +68,8 @@ new Question(name,"Stuart"),
 
 new Question(verbing, "driving"),
 new Question(direction, "north"),
-new Question(noun, "Woodley"),
-new Question(noun, "Bellington"),
+new Question(place, "Woodley"),
+new Question(place, "Bellington"),
 new Question(verb, "deliver"),
 new Question(verb, "coffee beans"),
 new Question(name,"Becky"),
@@ -75,21 +79,12 @@ new Question(name,"Zara"),
 
 new Question(name,"Ellie"),
 new Question(noun, "a coffee shop"),
-new Question(noun, "Bellington"), 
+new Question(place, "Bellington"), 
 new Question(verbed, "ordered"),
 new Question(noun, "a fruit smoothie"),
 new Question(name, "Geoff"),
 ]
 
-/* 
-var questions = [
-new Question(date,2), 
-new Question(month,"February"),
-new Question(year, 2001),
-new Question(name,"James"), 
-new Question(name,"Linda"),
-new Question(noun, "his car")
-]; */
 
 function go(targetLocation) { 
 	locations.forEach(hide); 
@@ -138,9 +133,13 @@ function populateDropdown(q, index) {
 function populateForm() {
 	
 	//On <select id="0" onchange="checkAnswers();"></select> <select id="1" onchange="checkAnswers();"></select> <select id="2" onchange="checkAnswers();"></select>,
-	t = formText.replace(/([0-9]+)/g, "<select id='$1' onchange='checkAnswers();'></select>");
-	//console.log(t);
-	document.getElementById("form").innerHTML = t;
+	for (i in [0,1,2]) {
+		t = "<div class='answerform' id='form" + i + "'>";
+		t += formText[i].replace(/([0-9]+)/g, "<select id='$1' onchange='checkAnswers();'></select>");
+		t += "</div>";
+		document.getElementById("form").innerHTML += t;
+
+	}
 	questions.forEach(populateDropdown);
 }
 
@@ -154,13 +153,13 @@ function isAnswerCorrect(value, index) {
 }
 
 function checkAnswers() {
-	//console.log("check");
+ //todo check each form separately, make the correct ones green; proceed to success state if all 3 correct
 
 	if (questions.every(isAnswerCorrect) || tmp==1) {
 		console.log("correct!")
-		document.getElementById("notes").class = "rounded-lg border-4 border-green-600 shadow-lg";
-		document.getElementById("form-content").class = "modal-content; rounded-xl border-4 border-green-600 bg-gradient-to-tr from-green-500 to-emerald-500" ;
-		document.getElementsByTagName("select").forEach(makeSelectElementGreen);
+		//document.getElementById("notes").class = "rounded-lg border-4 border-green-600 shadow-lg";
+		document.getElementById("form").class = "answerform-correct" ;
+		//document.getElementsByTagName("select").forEach(makeSelectElementGreen);
 		
 	}
 }
