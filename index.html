@@ -50,7 +50,8 @@
 
 <map name="indoormap">
   <area shape="rect" coords="1400,0,1500,1024" alt="Exit" href="javascript:go('outdoor');" style="cursor: url('rightarrow.png'), auto">
-  <area shape="rect" coords="50,200,180,350" alt="Photo" href="javascript:display('photodiv');" style="cursor: url('glass.png'), auto">
+  <area shape="rect" coords="0,0,50,1024" alt="Lounge" href="javascript:go('lounge');" style="cursor: url('leftarrow.png'), auto">
+  <area shape="rect" coords="51,200,180,350" alt="Photo" href="javascript:display('photodiv');" style="cursor: url('glass.png'), auto">
    <area shape="rect" coords="250,690,500,900" alt="Clutter" href="javascript:display('clutterdiv');" style="cursor: url('glass.png'), auto">
   <area shape="rect" coords="340,270,580,500" alt="Note" href="javascript:display('notediv');" style="cursor: url('glass.png'), auto">
   <area shape="rect" coords="440,60,1340,550" alt="Conversation" href="javascript:display('indoor-convodiv');" style="cursor: url('speech.png'), auto">
@@ -106,6 +107,18 @@
 		</div>
 	</div>
 </div> 
+
+<!-- ============== LOUNGE ============== -->
+
+<!-- Lounge image starts off hidden  -->
+<img src="lounge.png" style="display:none" id="lounge"  usemap="#loungemap">
+
+<map name="loungemap">
+  <area shape="rect" coords="924,0,1024,1024" alt="Exit" href="javascript:go('indoor');" style="cursor: url('rightarrow.png'), auto">
+ 
+  
+</map>
+
 
 
 
@@ -216,6 +229,7 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 
 <div id="credits-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
 	<div class="modal-content credits" id="credits" > <!-- This is the modal itself --> 
+		<p>Great jo<span class="msg">b</span>!</p>
 		<p>Thanks for playing!</p>
 		<br>
 		<H3><u>C<span class="msg">re</span>dits</u></H3>
@@ -223,7 +237,7 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 		<p>Art — ChatGPT</p>
 		<p>Icons — <a target="_blank" id="url" href="https://icons8.com/icons">Icons8</a><p>
 		<br>
-		<button id="finish" onclick="finish()">Click here</button>
+		<button id="finish" onclick="finish()">Click here to see something cool</button>
 	</div>
 </div>
 

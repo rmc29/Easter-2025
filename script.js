@@ -28,7 +28,7 @@ const formText = [
  "Meanwhile, 0 (and her mother) were 1 2 3, and 4 was at 5 in 6, where she 7 8 from 9 the barista.",
  ];
 
-const locations = ["indoor", "outdoor", "road", "coffeeshop", /*"upstairs"*/];
+const locations = ["indoor", "outdoor", "road", "coffeeshop", "lounge"];
 
 
 /* Question object:
@@ -212,13 +212,14 @@ function fadeText(el) {
 
 function finish() {
 	document.getElementById("url").style.color="purple";
+	hide("finish");
+	
 	credits = document.getElementById("credits");
 	msgLetters = Array.from(document.getElementsByClassName("msg"));
 	
-	
 	credits.classList.add("bgfade")	
 	msgLetters.forEach(fadeText);
- //todo make it stay on the final values at the end
+ 
 	
 }
 
