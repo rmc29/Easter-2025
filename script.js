@@ -212,7 +212,7 @@ function fadeText(el) {
 
 function finish() {
 	document.getElementById("url").style.color="purple";
-	hide("finish");
+	document.getElementById("finish").style.visibility="hidden"; //hide the egg, but leave it in the DOM so stuff doesn't get repositioned
 	
 	credits = document.getElementById("credits");
 	msgLetters = Array.from(document.getElementsByClassName("msg"));
