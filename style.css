@@ -100,13 +100,13 @@ textarea	{
 
 .textfade {
 	 animation-name: textfade-animation;
-	animation-duration: 5s;
+	animation-duration: 7s;
 	animation-fill-mode: forwards;
 }
 
 .bgfade {
 	animation-name: bgfade-animation;
-	animation-duration: 5s;
+	animation-duration: 7s;
 	animation-fill-mode: forwards;
 }
 
