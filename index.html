@@ -8,6 +8,7 @@
 </head>
 <body onload="start();"> 
 
+
 <!-- ============== OUTDOORS ============== -->
 
 <!-- Outdoor image starts off visible -->
@@ -56,8 +57,6 @@
   
 </map>
 
-<!-- Answer form modal/toolbar  -->
-<img src="form.png" onclick="display('form-modal');" class="toolbar" style="cursor: url('form.png'), auto" id="answerbutton">
 
 
 
@@ -191,6 +190,13 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 
 <!-- ============== ANSWER FORM ============== -->
 
+
+<!-- Answer form modal/toolbar  -->
+<img src="form.png" onclick="display('form-modal');" class="toolbar" style="cursor: url('form.png'), auto" id="answerbutton">
+
+
+
+
 <div id="form-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
 	<div class="modal-content answerform incorrect" id="form-container"> <!-- This is the modal itself --> 
 		<span class="close" onclick="hide('form-modal')">&times;</span> <!-- Close button X -->
@@ -202,12 +208,28 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 		</td><td>
 			<textarea id="notes" rows=16 cols=100 placeholder="Personal notes..."></textarea>
 		</td></tr></table>
-	<div>
+	</div>
+</div>
+
+<!-- ============== CREDITS PAGE ============== -->
+<!-- ============== todo: add something to bring it up, or bring it up at the end ============== -->
+
+<div id="credits-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
+	<div class="modal-content credits" id="credits" > <!-- This is the modal itself --> 
+		<p>Thanks for playing!</p>
+		<br>
+		<H3><u>C<span class="msg">re</span>dits</u></H3>
+		<p>G<span class="msg">a</span>me <span class="msg">d</span>esign and progra<span class="msg">m</span>ming — R<span class="msg">a</span>chael Churchill</p>
+		<p>Art — ChatGPT</p>
+		<p>Icons — <a target="_blank" id="url" href="https://icons8.com/icons">Icons8</a><p>
+		<br>
+		<button id="finish" onclick="finish()">Click here</button>
+	</div>
 </div>
 
 
 
-<a target="_blank" href="https://icons8.com/icon/11759/arrow">Arrow</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 	
 </body>
 </html>

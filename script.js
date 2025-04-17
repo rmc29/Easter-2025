@@ -196,7 +196,7 @@ function checkAnswers() {
 		for (i of ["notes", "form", "form-container"]) {
 			addCorrectClass(document.getElementById(i));
 		}
-		
+	display("credits-modal");
 	}
 }
 
@@ -204,6 +204,22 @@ function start() {
 	 detectMob();
 	 populateForm();
 	 	tmp=0;
+}
+
+function fadeText(el) {
+	el.classList.add("textfade");
+}
+
+function finish() {
+	document.getElementById("url").style.color="purple";
+	credits = document.getElementById("credits");
+	msgLetters = Array.from(document.getElementsByClassName("msg"));
+	
+	
+	credits.classList.add("bgfade")	
+	msgLetters.forEach(fadeText);
+ //todo make it stay on the final values at the end
+	
 }
 
 

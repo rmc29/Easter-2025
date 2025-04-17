@@ -46,21 +46,17 @@ textarea	{
   border: 1px solid #888;
  // width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  // animation-name: animatetop;
-  //animation-duration: 0.4s;
-
 
 }
 
-.toolbar-modal-content {
-	
-}
 
 .convo {
 	border-radius: 10px;
 	box-shadow: 1px 1px #888888;
 	padding: 10px;
 	 font-family: Arial, Helvetica, sans-serif;
+	 font-weight: bold;
+	 font-size: 18px;
 }
 
 .answerform {
@@ -89,14 +85,46 @@ textarea	{
 }
 
 .greentext {
-	  color: darkgreen;
+	color: darkgreen;
 }
 
-/* Add Animation */
-@keyframes animatetop {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+@keyframes bgfade-animation {
+  from {background-color: white;}
+  to {background-color: purple;}
 }
+
+@keyframes textfade-animation {
+  from {color: purple;}
+  to {color: white;}
+}
+
+.textfade {
+	 animation-name: textfade-animation;
+	animation-duration: 5s;
+}
+
+.bgfade {
+	animation-name: bgfade-animation;
+	animation-duration: 5s;
+}
+
+.credits {
+	z-index: 3;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 10px;
+	padding: 10px;
+	border: 2px solid purple;
+	box-shadow: 2px 2px indigo;
+	color: purple;
+	text-align: center;
+	top: 300px;
+	margin: auto;
+	width: 50%;
+   
+}
+
+
+
 
 .modal { /* grey overlay */
   display: none; /* Hidden by default */
