@@ -14,7 +14,7 @@ const date = Array.from({ length: 31 }, (value, index) => index+1);
 date.unshift("(Date)");
 const year = Array.from({ length: 26},  (value, index) => 2000 + index);
 year.unshift("(Year)");
-const hour = Array.from({ length: 12 }, (value, index) => index);
+const hour = Array.from({ length: 12 }, (value, index) => index+1);
 hour.unshift("(Hour)");
 const day = ["(Weekday)", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -124,7 +124,7 @@ function hide(id) {
 
 //warning popup if on mobile
  function detectMob() {
-	if (( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 )) { //todo check these numbers both ways
+	if (/Android|webOS|iPhone|iPad/i.test(navigator.userAgent)) { 
 		alert("Happy Easter! I recommend viewing this on desktop because it's built in old-school JavaScript without any of that newfangled responsive design stuff.");
 	}
 }
