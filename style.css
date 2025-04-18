@@ -169,3 +169,20 @@ textarea	{
   cursor: pointer;
 }
   
+  
+  
+.toolbar:hover,
+.toolbar:focus {
+
+  cursor: pointer;
+}
+  
+.egg { 
+  position: relative;
+}
+ 
+.egg:hover,
+.egg:focus {
+
+  cursor: pointer;
+}

@@ -124,10 +124,10 @@
 <!-- ============== ROAD ============== -->
 
 <!-- Road image starts off hidden -->
-<img src="road.png" style="display:none" id="road" usemap="#roadmap">  <!-- TODO:update with real road image-->
+<img src="road.png" style="display:none" id="road" usemap="#roadmap"> 
 
 <map name="roadmap">
- <!-- TODO:decide which direction is which-->
+ 
    <area shape="rect" coords="0,0,100,1024" alt="Left" href="javascript:go('outdoor');" style="cursor: url('leftarrow.png'), auto">
     <area shape="rect" coords="1400,0,1500,1024" alt="Right" href="javascript:go('coffeeshop');" style="cursor: url('rightarrow.png'), auto">
 </map>
@@ -192,19 +192,11 @@ TODO: style; right align  -->
 
 
 
-<!-- TODO
-Close by clicking in grey overlay outside modals?
-Add credits page at end, and move arrow credit and others to there
-Different/bigger font for conversations? Bold?
-Fix issues with some Xs on the left (or just put them all on the left?!)
- when correct, maybe fade out to reveal a message
--->
-
 <!-- ============== ANSWER FORM ============== -->
 
 
 <!-- Answer form modal/toolbar  -->
-<img src="form.png" onclick="display('form-modal');" class="toolbar" style="cursor: url('form.png'), auto" id="answerbutton">
+<img src="form.png" onclick="display('form-modal');" class="toolbar"  id="answerbutton">
 
 
 
@@ -224,7 +216,6 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 </div>
 
 <!-- ============== CREDITS PAGE ============== -->
-<!-- ============== todo: add something to bring it up, or bring it up at the end ============== -->
 
 <div id="credits-modal" class="modal"> <!-- This bit is the grey overlay that covers everything that's not part of the modal -->
 	<div class="modal-content credits" id="credits" > <!-- This is the modal itself --> 
@@ -238,7 +229,7 @@ Fix issues with some Xs on the left (or just put them all on the left?!)
 		<p>Icons — <a target="_blank" id="url" href="https://icons8.com/icons">Icons8</a><p>
 		<br>
 		
-		<div id="finish" onclick="finish()"><img src="egg.png" style="position: relative"></div>
+		<div id="finish" onclick="finish()"><img src="egg.png" class="egg" ></div>
 		<p>Clic<span class="msg">k</span> on the East<span class="msg">er</span> egg to see something cool!
 	</div>
 </div>
