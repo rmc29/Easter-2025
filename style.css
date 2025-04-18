@@ -37,6 +37,26 @@ textarea	{
 	
 }
 
+
+.rota2 {
+	background-color: #FFF8DC;
+	color: darkblue;
+	font-family: Courier;
+	padding: 50px;
+	z-index: 2;
+	
+	
+}
+
+.rota-inner {
+	background-color: #FFF8DC;
+	color: darkblue;
+	font-family: Courier;
+	padding: 50px;
+	z-index: 2;
+	
+}
+
 .toolbar 	{
 	top: 1000;
 	z-index: 1;
@@ -64,6 +84,8 @@ textarea	{
 	 font-size: 18px;
 	 position: absolute;
 }
+
+
 
 .answerform {
   border-width: 2px;
