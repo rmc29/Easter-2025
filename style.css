@@ -27,8 +27,12 @@ textarea	{
 	background-color: #FFF8DC;
 	color: darkblue;
 	font-family: Courier;
-/*	float: right;*/
+	float: right;
 	padding: 50px;
+	/*right: 0px;
+	display: inline-block;
+	position: absolute;*/
+	z-index: 2;
 	
 	
 }
@@ -39,13 +43,14 @@ textarea	{
 }
 
 .modal-content {
-  position: absolute;
+  position: relative;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
   border: 1px solid #888;
  // width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  display: inline-block;
 
 }
 
@@ -57,6 +62,7 @@ textarea	{
 	 font-family: Arial, Helvetica, sans-serif;
 	 font-weight: bold;
 	 font-size: 18px;
+	 position: absolute;
 }
 
 .answerform {
@@ -146,14 +152,14 @@ textarea	{
 /* Close button */
 .close {
   color: #aaaaaa;
-
   font-size: 28px;
   font-weight: bold;
-  position: relative; 
-  /*absolute should mean relative to its container, relative should mean relative to its default position. Absolute puts it on the left in both cases (idk why); relative puts it on the right for the answer form (as expected) but left for the photo (idk why). Also works correctly (on right) for the rota, which is text only.*/
+  position: absolute;
   z-index: 2;
+  right: 10px;
+  top: 10px;
 
-  float: right;
+  //float: right;
 }
 
 .close:hover,
