@@ -1,5 +1,5 @@
 // Lists of all possible verbs, nouns, etc
-const name = ["(Name)", "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe", "Ruth", "Emma", "Ed", "Ashton", "Julia", "John", "Ali", "Rob", "Stuart", "Dawn", "Simon", "Geoff", "Sarah", "Doreen"].sort();
+const name = ["(Name)", "Ellie", "Harper", "Linda", "Frank", "Zara", "Andrew", "James", "Becky", "Ben", "Rose", "Dave", "Tom ", "Katie", "Doreen", "Naomi", "Chloe", "Ruth", "Emma", "Ed", "Ashton", "Julia", "John", "Ali", "Rob", "Stuart", "Dawn", "Simon", "Geoff", "Sarah"].sort();
 const noun = ["(noun)", "his parents", "her friend", "coffee beans", "the universe", "a coffee shop", "world peace", "the letter Q", "a duck", "potatoes", "an Easter card", "their house", "the road", "his car", "his job", "money", "existential terror", "an iPhone", "the Riemann hypothesis ", "cheesecake", "her sister", "her brother", "his sister", "his brother", "her parents", "a fruit smoothie", "a milkshake", "a cappuccino", "baked beans", "green beans", "jumping beans", "black beans"].sort();
 const place = ["(place)", "Woodley", "Bellington", "Farley", "Norton", "Harpton", "Mereham" ].sort();
 const direction = ["(direction)","north", "south", "east", "west", "downward", "upward","ana", "kata", "rimward", "hubward" ];
